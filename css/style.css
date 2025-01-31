@@ -70,6 +70,13 @@ p {
   line-height: var(--primary-line-height);
 }
 
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-medium); 
+  }
+}
+
 /* Divider*/
 
 .x-divider {
