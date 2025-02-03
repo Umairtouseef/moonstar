@@ -4,66 +4,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Production | Gallery</title>
+  <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Belleza&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="icon" href="https://factorika.peerduck.com/wp-content/uploads/2024/02/cropped-fabrickj-32x32.png" type="image/x-icon" />
 
   <style>
     .image-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      /* 3 equal columns */
       grid-gap: 10px;
-      /* Spacing between images */
     }
 
     .image-grid img {
       width: 100%;
       height: auto;
       object-fit: cover;
-      /* Maintain aspect ratio and cover the grid cell */
       border-radius: 8px;
-      /* Optional: add rounded corners to images */
     }
 
-    /* Make some images taller, others wider */
     .image-grid img:nth-child(odd) {
       height: 250px;
-      /* Random height for odd images */
     }
 
     .image-grid img:nth-child(even) {
       height: 180px;
-      /* Random height for even images */
     }
 
-    /* Responsive adjustments if needed */
     @media (max-width: 768px) {
       .image-grid {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 columns on smaller screens */
       }
 
       .image-grid img:nth-child(odd) {
         height: 200px;
-        /* Adjust height for mobile view */
       }
 
       .image-grid img:nth-child(even) {
         height: 150px;
-        /* Adjust height for mobile view */
       }
     }
 
     @media (max-width: 576px) {
       .image-grid {
         grid-template-columns: 1fr;
-        /* 1 column on very small screens */
       }
 
       .image-grid img {
         height: 250px;
-        /* Larger images on smaller screens */
       }
     }
   </style>
@@ -140,11 +141,11 @@
 
 
   <!-- Include Footer Banner -->
-  <section class="footer-section text-center">
+  <section class="footer-about-section text-center">
     <div class="container d-flex flex-column justify-content-center align-items-center h-100 footer-content"
       style="margin-top: 72px">
-      <h1 class="text-white">Stitching Style,<br />Weaving Dreams</h1>
-      <p class="lead mt-3 text-white">
+      <h1 class="text-black">Stitching Style,<br />Weaving Dreams</h1>
+      <p class="lead mt-3 text-black">
         Whether you're a designer looking for a trusted partner or a fashion
         enthusiast seeking the latest trends, we've got you covered.
       </p>

@@ -147,7 +147,13 @@ p {
 
 .textile-section {
   background-image: var(--primary-background-image);
-  padding: 5rem 0;
+  padding: 8rem;
+}
+
+@media (max-width: 900px) {
+  .textile-section {
+    padding: 1rem;
+  }
 }
 
 .cards-row-firstbanner {
@@ -158,14 +164,103 @@ p {
 .cards-row .card {
   background-image: var(--primary-background-image);
 }
+
+/* First Banner -> Spinner secound card */
+.spinning-circle-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  margin-top: 60px;
+}
+
+.spinning-circle {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.spinning-circle::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.circular-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: counter-spin 20s linear infinite;
+  z-index: 4;
+}
+
+.card-img-container {
+  position: relative;
+  height: 100%;
+}
+
+.card-img-top {
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.center-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary-color);
+  font-size: 5rem;
+  z-index: 5;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes counter-spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(-360deg);
+  }
+}
+
 /* Secound Banner */
 
 .manufacture-section {
-  background-image: url(--secoundary-background-image);
-  padding: 5rem 0;
+  padding: 8rem ;
+  position: relative;
+  background-image: url('../assets/lamback.png'), var(--secoundary-background-image);
+  background-position: left bottom, right top; 
+  background-size: 40% auto, 15% auto; 
+  background-repeat: no-repeat;
 
 }
 
+@media (max-width: 900px) {
+  .manufacture-section {
+    padding: 1rem;
+  }
+}
 /* Services Banner */
 .display-4 {
 }
@@ -173,9 +268,13 @@ p {
 .services-section {
   position: relative;
   background-image: var(--primary-background-image);
-  padding: 5rem 0;
+  padding: 8rem ;
 }
-
+@media (max-width: 900px) {
+  .services-section {
+    padding: 1rem;
+  }
+}
 .services-section::after {
   content: "";
   position: absolute;
@@ -252,7 +351,17 @@ p {
 
 /* Defect-free Banner */
 .Defectfree-section {
-  padding: 5rem 0;
+  padding: 8rem ;
+  position: relative;
+  background-image: url('../assets/lamback.png'), var(--secoundary-background-image);
+  background-position: left bottom, right top; 
+  background-size: 15% auto, 15% auto; 
+  background-repeat: no-repeat;
+}
+@media (max-width: 900px) {
+  .Defectfree-section {
+    padding: 1rem;
+  }
 }
 .btn-primary {
   background-color: var(--primary-color);
@@ -267,21 +376,116 @@ p {
   transform: translateY(-2px);
 }
 
+
+@keyframes count {
+  0% {
+      content: "0";
+  }
+  100% {
+      content: "98";
+  }
+}
+
+
 /* Youtube-Image Banner */
 
 .youtube-image-section {
+  height: 50vh;
 }
 
 /* History Section Banner */
 
 .history-section {
   background-image: var(--primary-background-image);
-  padding: 5rem 0;
+  padding: 8rem ;
+}
+@media (max-width: 900px) {
+  .history-section {
+    padding: 1rem;
+  }
 }
 
 .timeline-year {
   color: var(--primary-color);
   opacity: 0.4;
+}
+
+/* History Stepper */
+
+.stepper-wrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 64px;
+}
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 2;
+}
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background:var(--primary-color);
+  margin-bottom: 6px;
+}
+
+.stepper-item.active {
+  font-weight: bold;
+}
+
+.stepper-item.completed .step-counter {
+  background-color: var(--primary-color);
+}
+
+.stepper-item.completed::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid var(--primary-color);
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
 }
 
 @media (max-width: 991.98px) {
@@ -292,8 +496,17 @@ p {
 
 /* Faq Banner */
 .faq-section {
-  /* background-image: var(--primary-background-image); */
-  padding: 5rem 0;
+  padding: 8rem ;
+  position: relative;
+  background-image: url('../assets/lamback.png'), var(--secoundary-background-image);
+  background-position: right bottom, right top; 
+  background-size: 30% auto, 15% auto; 
+  background-repeat: no-repeat;
+}
+@media (max-width: 900px) {
+  .faq-section {
+    padding: 1rem;
+  }
 }
 .faq-header {
   color: var(--primary-color);
@@ -329,7 +542,12 @@ p {
   background: url("https://factorika.peerduck.com/wp-content/uploads/2024/01/rwynwryn.jpg")
     no-repeat center center/cover;
   height: 70vh;
-  padding: 5rem 0;
+  padding: 8rem ;
+}
+@media (max-width: 900px) {
+  .footer-section {
+    padding: 1rem;
+  }
 }
 
 .footer-section::before {
@@ -350,6 +568,53 @@ p {
   padding: 2rem;
 }
 
+
+
+/* ProductionGallery */
+.youtube-imagegroup-section {
+  padding: 8rem ;
+
+}
+
+
+
+
+/* About Us Page */
+
+.footer-about-section {
+  position: relative;
+  /* background: url("https://factorika.peerduck.com/wp-content/uploads/2024/01/rwynwryn.jpg")
+    no-repeat center center/cover; */
+  /* height: 70vh; */
+  position: relative;
+  background-image:  var(--secoundary-background-image),var(--primary-background-image);
+  background-position: right top, center; 
+  background-size: 10% auto, 100% auto; 
+  background-repeat: no-repeat;
+  padding: 8rem ;
+}
+@media (max-width: 900px) {
+  .footer-about-section {
+    padding: 1rem;
+  }
+}
+.footer-about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.5); */
+  z-index: 1;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+}
 
 /* Contact Page */
 .contact-section  {
@@ -402,7 +667,7 @@ p {
   font-size: 20px;           
 }
 
-/* Contact Info */
+/* Contact Page-> Contact Info */
 .full-contact-info{
   background-color: black;
 }
@@ -434,12 +699,17 @@ p {
 }
 
 
-/* FindUs */
+/* Contact Page-> FindUs */
 
 
 .find-us-section {
-  padding: 5rem 0;
+  padding: 8rem ;
 
+}
+@media (max-width: 900px) {
+  .find-us-section {
+    padding: 1rem;
+  }
 }
 
 .office-address {
@@ -456,21 +726,12 @@ p {
 }
 
 .map-container {
-  border: 1px solid #ced4da; /* Light gray border for the map */
-  height: 400px; /* Adjust height as needed */
+  border: 1px solid #ced4da; 
+  height: 400px;
 }
 
-/* Responsive adjustments if needed */
 @media (max-width: 768px) {
   .map-container {
-      height: 300px; /* Adjust height for smaller screens */
+      height: 300px; 
   }
-}
-
-
-
-/* ProductionGallery */
-.youtube-imagegroup-section {
-  padding: 5rem 0;
-
 }
